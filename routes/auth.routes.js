@@ -27,6 +27,8 @@ function connectToDatabase(pool) {
 // POST - Login
 router.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
+
+  console.log(req.body)
   const pool = mysql.createPool({
     host: host,
     user: username,
@@ -56,7 +58,7 @@ router.post('/api/login', async (req, res) => {
     maxAge: 3600000 // 1 hora
   });
 
-  res.json({ message: 'Login exitoso', user: { id: user.id, name: user.name, email: user.email } });
+  res.json({ message: 'Login exitoso', user: { id: username } });
 
 });
 

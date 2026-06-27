@@ -1,5 +1,7 @@
 services:
   api:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     build: .
     ports:
       - "80:3000"
