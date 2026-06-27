@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
 
 const host = process.env.DB_HOST;
-const database = process.env.DB_DATABASE;
+const database = process.env.DB_NAME;
 
 //pool.getConnection()
 //  .then(() => console.log('✅ Conectado a la base de datos'))
