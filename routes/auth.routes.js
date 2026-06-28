@@ -43,13 +43,16 @@ router.post('/api/login', async (req, res) => {
     });
   }
 
-  const token = jwt.sign(
-    {
-      id: username
-    },
-    process.env.JWT_SECRET || 'mi_clave_secreta',
-    { expiresIn: '1h' }
-  );
+  const admin_test_query = `SELECT TABLE_NAME from INFORMATION_SCHEMA.TABLES
+  where TABLE_SCHEMA = 'nominas' and TABLE_NAME = 'SALARIOS';`;
+
+  const [result] = await pool.query(admin_test_query);
+  console.log("salarios", result, result != null);
+
+  const token =
+    jwt.sign({ id: username, admin: (result != null) }, process.env.JWT_SECRET || 'mi_clave_secreta', {
+      expiresIn: '1h'
+    });
 
   // Guardar token en cookie HTTP-only
   res.cookie('token', token, {

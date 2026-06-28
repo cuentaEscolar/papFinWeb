@@ -20,6 +20,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
       alert('Login exitoso: ' + username);
       // Redirigir o mostrar perfil
       console.log("ieeeeei. peace peace")
+      window.location.href = "MainMenu.html"
       //const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
       //modal.hide();
     } else {
