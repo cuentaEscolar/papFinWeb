@@ -1,4 +1,14 @@
 console.log("hi")
+const token = localStorage.getItem('token');
+
+// Check if the token exists
+console.log(token);
+if (!token) {
+  console.log('No token found. User is logged out.');
+} else {
+  console.log('Token exists. User is authenticated.');
+}
+
 document.getElementById('login-form').addEventListener('submit', async (e) => {
   e.preventDefault();
 
