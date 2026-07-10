@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Usuario</title>
+
+    <!-- Bootstrap 5 CSS -->
+
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+        }
+
+        .login-card {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<section class="h-100" >
+
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card shadow register-user-card">
+
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registrar Nuevo Empleado</h3>
+
+            <form  id="register-form" >
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="full_name">Nombre Completo</label>
+                <input type="text" id="full_name" class="form-control" required />
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div data-mdb-input-init class="form-outline datepicker">
+                    <label for="birthday" class="form-label">Fecha de nacimiento</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="birthday"
+                        placeholder="09:00:10"
+                        required>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6 mb-4" id="options-maquila">
+
+                  <label for="options-maquila-init" class="form-label">Tipo de Maquila</label>
+                  <select id="id_maquila" required>
+                    <option value="1" disabled>MaquilaA</option>
+                    <option value="2">MaquilaB</option>
+                  </select>
+
+                </div>
+
+              </div>
+
+
+              <button type="submit" class="btn btn-primary w-100">
+                  Registrar Empleado
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="./vendor/bootstrap/js/bootstrap.min.js" ></script>
+    <script src="src/registeruser.js"></script>
+</body>
+</html>
