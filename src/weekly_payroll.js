@@ -1,5 +1,16 @@
 import { is_admin } from "./force_login.js";
-is_admin();
+async function force_admin() {
+  const admin_data = await is_admin();
+  const admin = admin_data.user.admin;
+  console.log(admin);
+  if (admin == 0) {
+
+    alert('El usuario no es administrador');
+    window.location.href = '/Login.html';
+  }
+
+}
+
 async function load_last_week_payroll() {
 
   const response = await fetch('/api/weekly_payroll');
@@ -60,6 +71,7 @@ document.getElementById('current-daily-payroll-button').addEventListener('click'
   e.preventDefault();
   load_current_week_payroll();
 });
+force_admin();
 
 load_last_week_payroll();
 load_current_week_payroll();
