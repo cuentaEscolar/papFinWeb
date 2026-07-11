@@ -25,29 +25,27 @@ router.post('/api/login', async (req, res) => {
       );
     }
     const user_id = user[0].id;
-    console.log("user id");
-    console.log(user_id);
-    console.log(user_id);
     const [rows] = await pool.query('SELECT * FROM PASSWORDS_CAPTURISTAS WHERE id = ?', [user_id]);
-    console.log('response', rows);
+    //console.log('response', rows);
     const user_p = rows[0].password;
-    console.log(rows);
+    //console.log(rows);
 
-    console.log(password, user_p)
+    //console.log(password, user_p)
     // Comparar contraseña
     const validPassword = await bcrypt.compare(password, user_p);
+
     if (!validPassword) {
       return res.status(401).json({ error: 'Contraseña incorrecta' });
     }
+    const [is_admin_row] = await pool.query('SELECT admin FROM CAPTURISTAS WHERE id = ?', [user_id]);
+    const is_admin = is_admin_row[0];
+    //console.log("is admin???", is_admin);
 
     // Crear token JWT
     const token = jwt.sign(
       {
-        id: user.idUsuario,
-        name: user.nombre,
-        email: user.email,
-        phone: user.telefono,
-        isprovider: user.rol
+        id: user_id,
+        admin: is_admin.admin,
       },
       process.env.JWT_SECRET || 'mi_clave_secreta',
       { expiresIn: '1h' }
@@ -60,11 +58,17 @@ router.post('/api/login', async (req, res) => {
       maxAge: 3600000 // 1 hora
     });
 
-    res.json({ message: 'Login exitoso', user: { id: user.id, name: user.name, email: user.email } });
+    res.json({ message: 'Login exitoso', user: { id: user_id, admin: is_admin.admin } });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error en login' });
   }
+});
+
+// GET - Verificar sesión activa
+router.get('/api/check-session', authenticateToken, (req, res) => {
+  // Si el middleware pasa, significa que el usuario está logeado
+  res.json({ loggedIn: true, user: req.user });
 });
 
 // POST - Login
