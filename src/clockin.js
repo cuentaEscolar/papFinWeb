@@ -1,4 +1,6 @@
+import { is_admin } from "./force_login.js";
 
+is_admin();
 document.getElementById('clockin-form').addEventListener('submit', async (e) => {
   e.preventDefault();
 

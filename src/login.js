@@ -1,13 +1,4 @@
 console.log("hi")
-const token = localStorage.getItem('token');
-
-// Check if the token exists
-console.log(token);
-if (!token) {
-  console.log('No token found. User is logged out.');
-} else {
-  console.log('Token exists. User is authenticated.');
-}
 
 document.getElementById('login-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -30,7 +21,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
       alert('Login exitoso: ' + username);
       // Redirigir o mostrar perfil
       console.log("ieeeeei. peace peace")
-      window.location.href = "MainMenu.html"
+      window.location.href = "Clockin.html"
       //const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
       //modal.hide();
     } else {
