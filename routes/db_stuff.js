@@ -34,6 +34,25 @@ router.get('/api/maquilas', async (req, res) => {
   }
 });
 
+router.post('/api/clockout', async (req, res) => {
+  try {
+    console.log(req.body);
+    const { empleado, hora } = req.body;
+
+    // Buscar usuario
+    await pool.query('call clockout(?, ?)', [empleado, hora]);
+
+    res.status(200).json({
+      success: true,
+      message: 'Entrada registrada'
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error en clockout' });
+  }
+});
+
+
 
 router.post('/api/clockin', async (req, res) => {
   try {
