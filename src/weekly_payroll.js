@@ -1,4 +1,5 @@
-
+import { is_admin } from "./force_login.js";
+is_admin();
 async function load_last_week_payroll() {
 
   const response = await fetch('/api/weekly_payroll');

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+        }
+
+        .clockin-card {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-10">
+        <div class="card shadow register-user-card">
+
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Nominas Semana Pasada</h3>
+        <button type="button" class="btn btn-secondary btn-sm" id="full-week-payroll-button">Recargar</button>
+
+<table class="table table-sm" id="full-week-payroll">
+  <thead>
+    <tr>
+
+      <th scope="col"> nombre    </th>
+      <th scope="col"> nomina_total </th>
+          <th scope="col"> nomina regular </th>
+          <th scope="col"> nomina tarde </th>
+          <th scope="col"> nomina noche </th>
+          <th scope="col"> horas regulares </th>
+          <th scope="col"> horas tarde </th>
+          <th scope="col"> horas noche </th>
+          <th scope="col">
+
+    </tr>
+  </thead>
+  <tbody id="full-week-payroll-body">
+
+    <tr>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+    </tr>
+
+
+    <tr>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+    </tr>
+
+
+  </tbody>
+
+</table>
+
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Nomina Semana Actual</h3>
+
+        <button type="button" class="btn btn-secondary btn-sm" id="current-daily-payroll-button">Recargar</button>
+
+<table class="table table-sm" id="current-daily-payroll">
+  <thead>
+    <tr>
+<th scope="col"> dia        </th><th scope="col"> nomina_total </th><th scope="col"> nomina_regular </th><th scope="col"> nomina_tarde </th><th scope="col"> nomina_noche </th><th scope="col"> horas_regulares </th><th scope="col"> horas_tarde </th><th scope="col"> horas_noche </th><th scope="col">
+
+    </tr>
+  </thead>
+  <tbody id="current-daily-payroll-body" >
+
+    <tr>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+    </tr>
+
+
+    <tr>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+      <td class="placeholder-glow"> <span class="placeholder col-6"></span> </td>
+    </tr>
+
+
+
+  </tbody>
+
+</table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Bootstrap JS -->
+
+<script src="./vendor/bootstrap/js/bootstrap.min.js" ></script>
+  <script src="src/weekly_payroll.js" type="module"></script>
+
+</body>
+</html>

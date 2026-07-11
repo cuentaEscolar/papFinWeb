@@ -1,13 +1,5 @@
-// Check if the token exists
-const token = localStorage.getItem('token');
-
-if (!token) {
-  console.log('No token found. User is logged out.');
-} else {
-  console.log(token);
-  console.log('Token exists. User is authenticated.');
-}
-
+import { is_admin } from "./force_login.js";
+is_admin();
 
 document.getElementById('register-form').addEventListener('submit', async (e) => {
   e.preventDefault();

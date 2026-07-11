@@ -7,7 +7,17 @@ const pool = require('../config/db');
 
 router.get('/api/weekly_payroll', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT id,nombre FROM MAQUILA;');
+    const [rows] = await pool.query("call get_last_week_payroll()");
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/api/current_payroll', async (req, res) => {
+  try {
+    const [rows] = await pool.query(" call get_cur_week_payroll();");
     res.json(rows);
   } catch (err) {
     res.status(500).json(err);

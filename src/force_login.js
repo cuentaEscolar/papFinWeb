@@ -1,4 +1,5 @@
 export async function is_admin() {
+  console.log("checking if we are admin");
   const response = await fetch('/api/check-session', {
     credentials: 'include'
   });

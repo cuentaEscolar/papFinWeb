@@ -1,7 +1,59 @@
 
-.dark-background 
-{
-  #24331A
+body {
+    background-color: #f8f9fa;
+    height: 100vh;
+}
+
+.clockin-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.bg-custom {
+  background-color: #24331A;
+  color:white;
+
+}
+
+.nav-item.bg-custom:not(.disabled) > .nav-link {
+    background-color: #5B7F3B;
+    color: white;
+}
+
+
+.nav-item.bg-custom > .nav-link :hover {
+
+    background-color: #3D5A28;
+    color: white;
+}
+
+
+.nav-item.disabled > .nav-link {
+
+    color: white;
+    background-color: #37452E;
+    text-decoration: underline #D6453D; 
+}
+
+li.bg-custom:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+button.bg-custom:not(.disabled) {
+    background-color: #5B7F3B;
+    color: white;
+    border:none;
+}
+
+
+button.bg-custom:not(.disabled):hover {
+    background-color: #3D5A28;
+    color: white;
+    border:none;
 }
 
 

@@ -1,4 +1,4 @@
-console.log("hi")
+console.log("login js here")
 
 document.getElementById('login-form').addEventListener('submit', async (e) => {
   e.preventDefault();

@@ -11,7 +11,9 @@
     "url": "git+https://github.com/cuentaEscolar/papFinWeb.git"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "bcryptjs": "^3.0.2",
+    "bootstrap": "^5.3.8",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
