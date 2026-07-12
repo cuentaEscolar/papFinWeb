@@ -11,9 +11,36 @@ async function force_admin() {
 
 }
 
-async function load_last_week_payroll() {
 
-  const response = await fetch('/api/weekly_payroll');
+async function load_last_week_payroll_total() {
+
+  const response = await fetch('/api/weekly_payroll/total');
+  const nominas = (await response.json())[0];
+  console.log(nominas);
+
+  const tbody = document.getElementById("full-week-payroll-body-total");
+
+  tbody.innerHTML = "";
+
+  nominas.forEach(nomina_empleado => {
+
+    const row = document.createElement("tr");
+    Object.values(nomina_empleado).forEach(text => {
+      const cell = document.createElement("td");
+      cell.textContent = text; // Safe text insertion
+      row.appendChild(cell);
+    });
+
+    tbody.appendChild(row);
+
+  });
+
+}
+
+
+async function load_last_week_payroll_employees() {
+
+  const response = await fetch('/api/weekly_payroll/employees');
   const nominas = (await response.json())[0];
   console.log(nominas);
 
@@ -63,7 +90,9 @@ async function load_current_week_payroll() {
 
 document.getElementById('full-week-payroll-button').addEventListener('click', async (e) => {
   e.preventDefault();
-  load_last_week_payroll();
+
+  load_last_week_payroll_employees();
+  load_last_week_payroll_total();
 });
 
 
@@ -73,6 +102,7 @@ document.getElementById('current-daily-payroll-button').addEventListener('click'
 });
 force_admin();
 
-load_last_week_payroll();
+load_last_week_payroll_employees();
+load_last_week_payroll_total();
 load_current_week_payroll();
 

@@ -5,9 +5,19 @@ const pool = require('../config/db');
 
 
 
-router.get('/api/weekly_payroll', async (req, res) => {
+router.get('/api/weekly_payroll/total', async (req, res) => {
   try {
-    const [rows] = await pool.query("call get_last_week_payroll()");
+    const [rows] = await pool.query("call get_last_week_payroll_total();");
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/api/weekly_payroll/employees', async (req, res) => {
+  try {
+    const [rows] = await pool.query("call get_last_week_payroll();");
     res.json(rows);
   } catch (err) {
     res.status(500).json(err);

@@ -3,6 +3,12 @@ body {
     background-color: #f8f9fa;
     height: 100vh;
 }
+
+.table-custom{
+  background-color: #24331A;
+  color:white;
+}
+
 .bg-custom {
   background-color: #24331A;
   color:white;
