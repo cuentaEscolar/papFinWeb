@@ -17,9 +17,9 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
       body: JSON.stringify({ full_name, birthday, id_maquila })
     });
 
-    /*
     const data = await res.json();
 
+    /*
     if (res.ok) {
       alert('Login exitoso: ' + username);
       // Redirigir o mostrar perfil
@@ -53,6 +53,7 @@ async function loadMaquilas() {
   select.innerHTML = "";
 
   maquilas.forEach(maquila => {
+    if (maquila.nombre === "Salariado") { return true; }
 
     const option = document.createElement("option");
     option.value = maquila.id;

@@ -106,10 +106,11 @@ module.exports = router;
 
 router.post('/api/register_regular_user', async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { full_name, birthday, id_maquila } = req.body;
 
+    console.log(full_name, birthday, id_maquila);
     // Buscar usuario
-    const [user] = await pool.query('call registrar_empleado_regular ?', [username]);
+    const [user] = await pool.query('call registrar_empleado_regular_id(?,?,?)', [full_name, birthday, id_maquila]);
 
     if (user.length === 0) {
       return res.status(401).json(
