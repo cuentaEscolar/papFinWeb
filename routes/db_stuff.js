@@ -142,15 +142,12 @@ router.post('/api/register_regular_user', async (req, res) => {
     // Buscar usuario
     const [user] = await pool.query('call registrar_empleado_regular_id(?,?,?)', [full_name, birthday, id_maquila]);
 
-    if (user.length === 0) {
-      return res.status(401).json(
-        {
-          error: 'Usuario no creado'
-        }
-      );
-    }
+    console.log(user);
 
-    res.json({ message: 'Login exitoso', user });
+    res.status(200).json({
+      success: true,
+      message: 'Usuario registrado'
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error en login' });

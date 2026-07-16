@@ -18,23 +18,17 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     });
 
     const data = await res.json();
-
-    /*
     if (res.ok) {
-      alert('Login exitoso: ' + username);
+      alert('Registro Exitoso ' + full_name);
       // Redirigir o mostrar perfil
-      console.log("ieeeeei. peace peace")
-      window.location.href = "MainMenu.html"
       //const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
       //modal.hide();
     } else {
       alert(data.error);
     }
-
-    */
   } catch (err) {
     console.error(err);
-    alert('Error en la conexión');
+    alert('Error en la conexión', err);
   }
 
 });
