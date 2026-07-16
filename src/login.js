@@ -8,7 +8,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
   console.log(username, password);
   try {
 
-    const res = await fetch('/api/login', {
+    const res = await fetch('./api/login', {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
