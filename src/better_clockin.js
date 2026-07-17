@@ -8,15 +8,15 @@ async function loadUsers() {
   const maquilas = await response.json();
   console.log(maquilas);
 
-  const select = document.getElementById("id_empleado");
+  const select = document.getElementById("employee-choices");
 
   select.innerHTML = "";
 
   maquilas.forEach(empleado => {
 
     const option = document.createElement("option");
-    option.value = empleado.id;
-    option.textContent = empleado.nombre;
+    option.value = empleado.nombre;
+    //option.textContent = empleado.nombre;
 
     select.appendChild(option);
 
@@ -30,12 +30,12 @@ loadUsers();
 document.getElementById('clockin-form').addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const empleado = document.getElementById('id_empleado').value;
+  const empleado = document.getElementById('employee').value;
   const hora = document.getElementById('entryTime').value;
   console.log(empleado, hora);
   try {
 
-    const res = await fetch('/api/clockin/id', {
+    const res = await fetch('/api/clockin', {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },

@@ -1,6 +1,30 @@
 import { is_admin } from "./force_login.js";
 
+async function loadUsers() {
+
+  console.log("loading users");
+  const response = await fetch('/api/employee/names');
+  const maquilas = await response.json();
+  console.log(maquilas);
+
+  const select = document.getElementById("employee-choices");
+
+  select.innerHTML = "";
+
+  maquilas.forEach(empleado => {
+
+    const option = document.createElement("option");
+    option.value = empleado.nombre;
+    //option.textContent = empleado.nombre;
+
+    select.appendChild(option);
+
+  });
+
+}
+
 is_admin();
+loadUsers();
 document.getElementById('clockout-form').addEventListener('submit', async (e) => {
   e.preventDefault();
 

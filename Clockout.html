@@ -30,7 +30,7 @@
       <li class="nav-item bg-custom  " id = "clockout-li">
         <a class="nav-link " id="clockout-a" href="./Clockout.html">Registrar Salida</a>
       </li>
-      <li class="nav-item bg-custom  id="register_user_li">
+      <li class="nav-item bg-custom"  id="register_user_li">
         <a class="nav-link " id="register_user_a" href="./RegisterUser.html">Nuevo Empleado</a>
       </li>
 
@@ -51,15 +51,22 @@
                     <h2 class="text-center mb-4">Registro de Salida</h2>
 
                     <form id="clockout-form">
-                        <div class="mb-3">
-                            <label for="text" class="form-label">Empleado</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="employee"
-                                placeholder="Ingresar Nombre"
-                                required>
-                        </div>
+
+                          <input
+                              type="text"
+                              class="form-control"
+                              id="employee"
+                              list="employee-choices"
+                              placeholder="Ingresar Nombre"
+                          required>
+
+                          <datalist id="employee-choices">
+                            <option value="Chocolate"></option>
+                            <option value="Coconut"></option>
+                            <option value="Mint"></option>
+                            <option value="Strawberry"></option>
+                            <option value="Vanilla"></option>
+                          </datalist>
                         <div class="mb-3">
 
                           <label for="password" class="form-label">Hora de Salida</label>

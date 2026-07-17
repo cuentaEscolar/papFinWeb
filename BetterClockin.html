@@ -7,6 +7,7 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="./src/styles.css">
 
 </head>
@@ -55,10 +56,22 @@
                         <div class="mb-3" id="options-employee">
 
                           <label for="options-employee-init" class="form-label">Empleado</label>
-                          <select id="id_empleado" required>
-                            <option value="1" disabled>MaquilaA</option>
-                            <option value="2" disabled>MaquilaB</option>
-                          </select>
+
+                          <input
+                              type="text"
+                              class="form-control"
+                              id="employee"
+                              list="employee-choices"
+                              placeholder="Ingresar Nombre"
+                          required>
+
+                          <datalist id="employee-choices">
+                            <option value="Chocolate"></option>
+                            <option value="Coconut"></option>
+                            <option value="Mint"></option>
+                            <option value="Strawberry"></option>
+                            <option value="Vanilla"></option>
+                          </datalist>
 
                         </div>
 
@@ -74,7 +87,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 bg-custom">
+                        <button type="submit" class="btn btn-primary w-100 bg-custom" >
                             Registrar
                         </button>
 
@@ -88,7 +101,7 @@
 
 <!-- Bootstrap JS -->
 
-<script src="./vendor/bootstrap/js/bootstrap.min.js" ></script>
+<script src="./vendor/jquery/jquery.min.js" ></script>
   <script src="src/better_clockin.js" type="module"></script>
 
 </body>
